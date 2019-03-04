@@ -1,5 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 20px;
+}
+
+.section-input {
+  background-color: #1B3C59;
+}
+
+.section-input label,
+.section-input h2 {
+  color: white;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
