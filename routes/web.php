@@ -11,8 +11,17 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/iscriviti', 'AdmissionController@index')->name('admission.home');
-Route::post('/iscriviti', 'AdmissionController@save')->name('admission.save');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+    ],
+    function()
+    {
+        /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/iscriviti', 'AdmissionController@index')->name('admission.home');
+        Route::post('/iscriviti', 'AdmissionController@save')->name('admission.save');
+    });
+
 
 
