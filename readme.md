@@ -55,7 +55,8 @@
  -------
 
  **dispatch**, chiamati *job* in laravel.
- Serve per ritardare un comando, schedulandolo piu avanti.
+ Serve per ritardare un comando destinato all utente, eseguendolo piu avanti.
+ (a differenza delle schedule, che eseguono comandi nell applicazione, non destinati all utente)
  In questo caso si puo ritardare l invio di una mail. Cosi si velocizzano le operazioni del mio sito.
 
  Bisogna innanzitutto cambiare **drivers**. Nell .env, la connessione e' sync. Devo modificarla in **database**!!!!
@@ -69,3 +70,30 @@ vado poi a far partire le code con un demone: `php artisan queue:work`
 In pratica i dispatch mi mettono in cash in attesa quel processo, caricano tutto e poi alla fine eseguono quel processo, di modo da avere una migliore esperienza utente.
 
 Nella tabella jobs del db, compaiono i processi job che non si sono conclusi.
+
+
+-------
+
+**comandi artisan personalizzati**
+
+`php artisan make:command`
+
+esempio: creare una nuova view:
+
+`system('touch percorso/nome')` 
+con system, php mi permette di scrivere i comandi del terminale dentro php.
+
+
+---------
+
+
+**task schedule**
+
+innanzitutto introduciamo il crontab, a cui si accede da terminale con `crontab -e`.
+ gli si dice di stare in ascolto su laravel.
+
+ `* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1`
+ con il comando `pwd` guardo il percorso assoluto del mio progetto.
+
+
+poi vado a dire nel command/kernel ogni quanto eseguire il mio comando.
