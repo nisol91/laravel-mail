@@ -2,6 +2,7 @@
 
 return [
 
+    // 'chiave'=>'traduzione'
 
     'admission'=>'Subscribe',
 ];

@@ -112,4 +112,4 @@ anche in produzione, posso interagire con l app e il db tramite terminale.
 invece che usare laravel localization , che e' un po complessa, meglio localization di macamara(github).
 
 
-poi creo file general.php dentro alla cartella delle lingue, e vado a richiamare le traduzioni con @lang().
+poi creo file general.php dentro alla cartella resources/lang, e vado a richiamare le traduzioni con @lang('general.chiave').
