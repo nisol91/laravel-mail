@@ -1,6 +1,24 @@
 @extends('layouts.app')
+@section('title')
+ Admission form
+@endsection
 @section('content')
     <div class="container">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        @if (!empty($message))
+        <div class="alert alert-success">
+            {{ $message }}
+        </div>
+        @endif
         <div class="row">
             <div class="col-12">
                 <h1>Sei ad un passo dalla tua nuova professione</h1>
@@ -13,8 +31,8 @@
     </div>
     <div class="container-fluid section-input">
         <div class="row">
-            <div class="col-12">
-                <h2>Info Request</h2>
+            <div class="col-6 center">
+                <h2>Admission Form</h2>
                 <form class="form-group" action="{{ route('admission.save') }}" method="post">
                     @csrf
                     @method('POST')

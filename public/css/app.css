@@ -11,11 +11,16 @@ p {
 
 .section-input {
   background-color: #1B3C59;
+  padding: 20px;
 }
 
 .section-input label,
 .section-input h2 {
   color: white;
+}
+
+.center {
+  margin: 0 auto;
 }
 
 /*!

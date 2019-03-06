@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <title>app</title>
+    <title>@yield('title')</title>
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
