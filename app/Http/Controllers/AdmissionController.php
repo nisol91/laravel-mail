@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lead;
-use App\Mail\SendNewLead;
-use Illuminate\Support\Facades\Mail;
+use App\Jobs\MailAfterLead;
+
 
 
 class AdmissionController extends Controller
@@ -27,9 +27,12 @@ class AdmissionController extends Controller
 
         $lead->save();
 
-        \Log::info('inviato nuovo messaggio correttamente' . $lead);
+        // \Log::info('inviato nuovo messaggio correttamente' . $lead);
 
-        Mail::to('admin@mail.com')->send(new SendNewLead($lead));
+        MailAfterLead::dispatch($lead);
+
+
+
 
         $message = 'Complimenti, hai inserito i dati con successo';
 

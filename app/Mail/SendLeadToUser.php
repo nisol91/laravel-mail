@@ -6,22 +6,19 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Lead;
 
-class SendNewLead extends Mailable
+class SendLeadToUser extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $lead;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Lead $lead)
+    public function __construct()
     {
-        $this->lead = $lead;
+        //
     }
 
     /**
@@ -31,6 +28,6 @@ class SendNewLead extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.new_lead');
+        return $this->markdown('mail.new_lead_user');
     }
 }
